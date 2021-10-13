@@ -8,22 +8,22 @@ The function of this app is to access students' data from the collection 'Univer
 curl localhost:9990/me
 ```
 
-* /students: Return a JSON object with all the students’ attributes
+* /students: Return a JSON object with all the students’ attributes.
 ```
 curl localhost:9990/students
 ```
 
-* /students/<student_id>: Return a JSON object with the specified student 
+* /students/<student_id>: Return a JSON object with the specified student. The student_id can be changed to other number.
 ```
 curl localhost:9990/students/33333
 ```
 
-* /takes: Return the attributes of all the students with the courses 
+* /takes: Return the attributes of all the students with the courses.
 ```
 curl localhost:9990/takes
 ```
 
-* /takes/<student_id>: Return a JSON object for the specified student
+* /takes/<student_id>: Return a JSON object for the specified student. The student_id can be changed to other number.
 ```
 curl localhost:9990/takes/33333
 ```
@@ -36,6 +36,7 @@ docker pull polyu20035673d/student_svc
 ```
 
 # Run the docker image
+The arguments in the following command (MONGO_USERNAME, MONGO_PASSWORD, MONGO_SERVER_HOST and MONGO_SERVER_PORT) should be changed to the MongoDB server's setting if the current arguments do not meet the server's setting.
 ```
 docker run --rm --network ass1 -e MONGO_USERNAME=comp3122 -e MONGO_PASSWORD=12345 -e MONGO_SERVER_HOST='mongo' -e MONGO_SERVER_PORT='27017' -p 9990:15000 polyu20035673d/student_svc
 ```
