@@ -38,16 +38,12 @@ takes = db['takes']
 app = Flask(__name__)
 
 # Return a JSON object with my Student ID and Name.
-
-
 @app.route('/me', methods=['GET'])
 def get_me():
     # return my student information by JSON format
     return jsonify({"student_id": "20035673D", "name": "Wong Ming Yuen"}), 200
 
 # Return a JSON object with all the students’ attributes
-
-
 @app.route('/students', methods=['GET'])
 def get_students():
     # get all student data, disable _id coolumn and sort the students in ascending order of student_id
@@ -60,8 +56,6 @@ def get_students():
         return jsonify({'error': 'not found'}), 404
 
 # Return a JSON object with the specified student
-
-
 @app.route('/students/<student_id>', methods=['GET'])
 def get_student(student_id):
     # get student data by student ID, disable _id coolumn
@@ -73,7 +67,7 @@ def get_student(student_id):
     else:  # print error message if /no student with the specified student ID is found
         return jsonify({'error': 'not found'}), 404
 
-
+# Return the attributes of all the students with the courses they are taking
 @app.route('/takes', methods=['GET'])
 def get_students_with_courses():
     # aggregate two collection, the students were sorted in ascending order of student_id, the courses were sorted in ascending order of course_id
@@ -86,7 +80,7 @@ def get_students_with_courses():
     else:  # print error message if no student records are found
         return jsonify({'error': 'not found'}), 404
 
-
+# Return a JSON object for the specified student
 @app.route('/takes/<student_id>', methods=['GET'])
 def get_student_with_courses(student_id):
     # aggregate two collection, select the student by student_id,the students were sorted in ascending order of student_id, the courses were sorted in ascending order of course_id
