@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  mongo:
+    image: mongo
+    container_name: db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: comp3122
+      MONGO_INITDB_ROOT_PASSWORD: 12345
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_volume:/data/db
+networks:
+  default:
+    name: ass1
+volumes:
+  mongo_volume:
+    name: mongo_vol
