@@ -1,5 +1,6 @@
 # Overview of the Python flask app
 This is a containerized python flask REST API using MongoDB as the backend database server. The python flask app communicates the MongoDB through a docker network ass1. It uses the various environment variables entered by the command 'docker run'  for passing the information about the MongoDB server’s hostname, port number, username and password. The app requires an available MongoDB server and the correct MongoDB server's information, otherwise, the app will fail, then print an error message and exit.  
+
 The function of this app is to access students' data from the collection 'University ' in MongoDB, then present them in JSON format. It contains five endpoints as follows:
 
 * /me: Return a JSON object with my own Student ID and Name.
