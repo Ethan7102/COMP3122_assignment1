@@ -41,3 +41,8 @@ The arguments in the following command (MONGO_USERNAME, MONGO_PASSWORD, MONGO_SE
 docker run --rm --network ass1 -e MONGO_USERNAME=comp3122 -e MONGO_PASSWORD=12345 -e MONGO_SERVER_HOST='mongo' -e MONGO_SERVER_PORT='27017' -p 9990:15000 polyu20035673d/student_svc
 ```
 After running this command, the endpoints will be available including '/me', '/students', '/students/<student_id>, '/takes' and /'takes/<student_id>.
+
+# Build a docker image by Dockerfile(another way to get the docker image)
+```
+docker build -t polyu20035673d/student_svc .
+```
